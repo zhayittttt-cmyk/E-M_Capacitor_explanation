@@ -166,7 +166,7 @@
 
   <h2>Why We Should Think in Terms of Potential</h2>
   <p>
-    When dealing with circuits, the electric field is not really the right thing to think about, because the shape of a circuit is never trivial — the wires can be bent into any shape you want. What we <em>can</em> work with is potential. At the end of Chapter 2, we derived the fact that a conductor always tends to maintain electrostatic equilibrium: \(\vec{E} = 0\) inside, and \(V = \text{constant}\) throughout.
+    When dealing with circuits, the electric field is not really the right thing to think about, because the shape of a circuit is never trivial — the wires can be bent into any shape you want. What we <em>can</em> work with is potential. At the end of Chapter 2, we derived the fact that a conductor in electrostatic equilibrium satisfies: \(\vec{E} = 0\) inside, and \(V = \text{constant}\) throughout.
   </p>
   <p>
     This is really the only tool we have for dealing with irregularly shaped conductors, because we have never seen how to quantify the electric field inside an irregular shape — doing so would require multivariable calculus. So we would rather think about the charging process in terms of potential instead. The explanation using electric fields is only there to help you make sense of things, because that is what you are familiar with from earlier chapters. But once you get used to circuits, what you should always be thinking about is <strong>potential</strong>.
@@ -182,11 +182,11 @@
     The wire together with the plate on each side forms a conductor. So we have two sets of conductors: the left set (positive terminal + wire + left plate) and the right set (negative terminal + wire + right plate).
   </p>
   <p>
-    Since each set is a conductor, it will maintain electrostatic equilibrium — the potential is constant throughout. So the left set settles to the potential of the positive terminal (\(+V/2\) in our example), and the right set settles to the potential of the negative terminal (\(-V/2\) in our example).
+    Since each set is a conductor, it tends toward electrostatic equilibrium — meaning that once the charging process is finished, the potential is constant throughout each set. During the brief charging process, there can be small electric fields in the wires that allow current to flow. In the final steady state, the left set settles to the potential of the positive terminal (\(+V/2\) in our example), and the right set settles to the potential of the negative terminal (\(-V/2\) in our example).
   </p>
 
   <div class="key-idea">
-    <p><strong>Note on the choice of ground:</strong> It does not actually matter whether we label the terminals as \(+7.5\,\text{V}\) and \(-7.5\,\text{V}\), or \(15\,\text{V}\) and \(0\,\text{V}\), or \(0\,\text{V}\) and \(-15\,\text{V}\), or any other pair. The point is that each plate will match the potential of the terminal it is connected to, because conductors maintain electrostatic equilibrium. Only the <em>difference</em> in potential matters physically.</p>
+    <p><strong>Note on the choice of ground:</strong> It does not actually matter whether we label the terminals as \(+7.5\,\text{V}\) and \(-7.5\,\text{V}\), or \(15\,\text{V}\) and \(0\,\text{V}\), or \(0\,\text{V}\) and \(-15\,\text{V}\), or any other pair. The point is that each plate will match the potential of the terminal it is connected to in the final equilibrium state. Only the <em>difference</em> in potential matters physically.</p>
   </div>
 
   <h2>Finding the Charge</h2>
@@ -199,17 +199,17 @@
   </div>
 
   <p>
-    In fact, the coefficient of \(V\) here — namely \(\dfrac{A\,\varepsilon_0}{d}\) — is what we call the <strong>capacitance</strong> \(C\) of the capacitor. This is a concept you will see formally in the next chapter.
+    In fact, the coefficient of \(V\) here — namely \(\dfrac{A\,\varepsilon_0}{d}\) — is what we call the <strong>capacitance</strong> \(C\) of the capacitor. This formula assumes the plates are large compared to their separation so that edge effects are small and the electric field between them is approximately uniform.
   </p>
 
   <h2>Why Does Current Stop?</h2>
   <p>
-    Eventually, when the voltages are balanced — each plate matching the potential of its connected terminal — the charges have no potential difference driving them, so they have nowhere to move. Current stops.
+    Eventually, when the capacitor’s voltage equals the battery’s voltage, there is no net potential difference driving charges through the circuit. The electric field inside the wires becomes zero, so current stops.
   </p>
 
   <h2>The Bigger Lesson</h2>
   <p>
-    So really, we prove the fact that conductors remain in electrostatic equilibrium once, using electric fields (though we did not do the proof rigorously, which is the hard part), and then we set that reasoning aside because it is not easy to work with. From that point on, we use the <em>consequence</em> — that potential is constant throughout a conductor — as our working tool.
+    So really, we prove the fact that conductors remain in electrostatic equilibrium once, using electric fields (though we did not do the proof rigorously, which is the hard part), and then we set that reasoning aside because it is not easy to work with. From that point on, we use the <em>consequence</em> — that potential is constant throughout a conductor in equilibrium — as our working tool.
   </p>
 
   <div class="analogy-box">
