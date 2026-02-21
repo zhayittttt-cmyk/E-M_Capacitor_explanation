@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -61,14 +61,6 @@
   }
   .key-idea p { margin-bottom: 0.5rem; }
   .key-idea p:last-child { margin-bottom: 0; }
-  .step-list {
-    margin: 1.2rem 0;
-    padding-left: 1.5rem;
-  }
-  .step-list li {
-    margin-bottom: 0.6rem;
-    font-size: 1.05rem;
-  }
   .analogy-box {
     background: var(--card);
     border: 1px solid var(--border);
@@ -105,31 +97,39 @@
   <h1>Charging a Capacitor</h1>
   <p class="subtitle">A rigorous explanation using potentials, not electric fields</p>
 
-  <h2>The Setup</h2>
+  <h2>The Intuitive Picture</h2>
   <p>
-    Consider connecting two uncharged conducting plates (a parallel plate capacitor) to a battery of voltage \(V\). Let's fix the ground at the midpoint of the battery, so the positive terminal is at \(+V/2\) and the negative terminal is at \(-V/2\).
+    It is most natural to think of the uncharged plates as starting at \(0\,\text{V}\), with the positive terminal of the battery at \(+V/2\) and the negative terminal at \(-V/2\). You can then visualize charges "rolling downhill" from the terminals toward the plates. This picture is useful for building intuition, but it is only for intuition.
   </p>
 
-  <h2>The Key Observations</h2>
+  <h2>Why We Should Think in Terms of Potential</h2>
+  <p>
+    When dealing with circuits, the electric field is not really the right thing to think about, because the shape of a circuit is never trivial — the wires can be bent into any shape you want. What we <em>can</em> work with is potential. At the end of Chapter 2, we derived the fact that a conductor always tends to maintain electrostatic equilibrium: \(\vec{E} = 0\) inside, and \(V = \text{constant}\) throughout.
+  </p>
+  <p>
+    This is really the only tool we have for dealing with irregularly shaped conductors, because we have never seen how to quantify the electric field inside an irregular shape — doing so would require multivariable calculus. So we would rather think about the charging process in terms of potential instead. The explanation using electric fields is only there to help you make sense of things, because that is what you are familiar with from earlier chapters. But once you get used to circuits, what you should always be thinking about is <strong>potential</strong>.
+  </p>
+
+  <h2>The Mathematically Coherent Way</h2>
 
   <div class="key-idea">
-    <p><strong>Observation 1:</strong> A battery is <em>not</em> a conductor. Its terminal voltages are fixed by its internal electrochemical properties. The battery is the boss — it dictates the potentials at its terminals.</p>
-  </div>
-
-  <div class="key-idea">
-    <p><strong>Observation 2:</strong> The wire connecting a terminal to a plate, together with the plate itself, forms a single conductor. From electrostatics (end of Chapter 2), we know that a conductor maintains electrostatic equilibrium: \(\vec{E} = 0\) inside, and the potential is constant throughout.</p>
+    <p><strong>Key fact:</strong> A battery is <em>not</em> a conductor. Its terminal potentials are fixed by its internal electrochemical properties.</p>
   </div>
 
   <p>
-    This gives us two sets of conductors. The left set (positive terminal + wire + left plate) is at \(+V/2\), and the right set (negative terminal + wire + right plate) is at \(-V/2\).
+    The wire together with the plate on each side forms a conductor. So we have two sets of conductors: the left set (positive terminal + wire + left plate) and the right set (negative terminal + wire + right plate).
   </p>
+  <p>
+    Since each set is a conductor, it will maintain electrostatic equilibrium — the potential is constant throughout. So the left set settles to the potential of the positive terminal (\(+V/2\) in our example), and the right set settles to the potential of the negative terminal (\(-V/2\) in our example).
+  </p>
+
+  <div class="key-idea">
+    <p><strong>Note on the choice of ground:</strong> It does not actually matter whether we label the terminals as \(+7.5\,\text{V}\) and \(-7.5\,\text{V}\), or \(15\,\text{V}\) and \(0\,\text{V}\), or \(0\,\text{V}\) and \(-15\,\text{V}\), or any other pair. The point is that each plate will match the potential of the terminal it is connected to, because conductors maintain electrostatic equilibrium. Only the <em>difference</em> in potential matters physically.</p>
+  </div>
 
   <h2>Finding the Charge</h2>
   <p>
-    Now that we know the potential on each plate, we ask: how much charge is needed to make this configuration self-consistent?
-  </p>
-  <p>
-    Between the plates, we still have a parallel plate capacitor. The electric field in the gap is related to the surface charge density by Gauss's law, and related to the potential difference by \(V = Ed\). Combining these:
+    Now, to figure out how much charge the plates have: remember that we still have a parallel plate capacitor, where the electric field between the plates is related to the surface charge density. The potential difference across the plates is related to the field by \(V = Ed\). Combining these gives:
   </p>
 
   <div class="math-block">
@@ -137,39 +137,32 @@
   </div>
 
   <p>
-    The coefficient of \(V\) here, namely \(\dfrac{A\,\varepsilon_0}{d}\), is what we call the <strong>capacitance</strong> \(C\) of the capacitor — a concept you will see formally in the next chapter. So we arrive at:
+    In fact, the coefficient of \(V\) here — namely \(\dfrac{A\,\varepsilon_0}{d}\) — is what we call the <strong>capacitance</strong> \(C\) of the capacitor. This is a concept you will see formally in the next chapter.
   </p>
-
-  <div class="math-block">
-    $$Q = CV$$
-  </div>
 
   <h2>Why Does Current Stop?</h2>
   <p>
-    Eventually, when the voltages are balanced — each plate matching the potential of its connected terminal — the charges have no potential difference driving them, so they have nowhere to move. Current stops, and the system is in equilibrium.
+    Eventually, when the voltages are balanced — each plate matching the potential of its connected terminal — the charges have no potential difference driving them, so they have nowhere to move. Current stops.
   </p>
 
-  <h2>The Bigger Lesson: Forget \(\vec{E}\), Think \(V\)</h2>
+  <h2>The Bigger Lesson</h2>
   <p>
-    In circuits, the shape of wires can be arbitrary and irregular. We have never seen how to quantify the electric field inside an irregular conductor — that would require multivariable calculus and is extremely difficult in general. What we <em>can</em> work with is <strong>potential</strong>.
-  </p>
-  <p>
-    We proved, using electric fields, that conductors maintain electrostatic equilibrium (constant potential throughout). Having established this fact, we can now set the electric field reasoning aside and work entirely with potentials. This is the right way to think about circuits.
+    So really, we prove the fact that conductors remain in electrostatic equilibrium once, using electric fields (though we did not do the proof rigorously, which is the hard part), and then we set that reasoning aside because it is not easy to work with. From that point on, we use the <em>consequence</em> — that potential is constant throughout a conductor — as our working tool.
   </p>
 
   <div class="analogy-box">
     <div class="label">Analogy</div>
     <p>
-      This is similar to the Fundamental Theorem of Calculus. We use Part 1 to <em>prove</em> Part 2, but then we never use Part 1 again to compute definite integrals — Part 2 is the operational tool. Similarly, the electric field derivation of electrostatic equilibrium is the foundational justification, but potential is the tool you actually compute with in circuits.
+      A familiar (yet perhaps unpleasant) analogy: we used the Fundamental Theorem of Calculus Part 1 to prove Part 2, yet we would never use Part 1 to compute any definite integrals. Similarly, the electric field derivation justifies the equilibrium principle, but potential is the tool you actually compute with in circuits.
     </p>
   </div>
 
   <p>
-    You will see this idea of working with potential (rather than electric fields) come to full fruition when you reach the chapter on <strong>Kirchhoff's Rules</strong>.
+    You will see this idea of working with potential rather than electric fields come to full use when you reach the chapter on <strong>Kirchhoff's Rules</strong>. I will re-explain all of this on Tuesday.
   </p>
 
   <div class="footer">
-    <p>My apologies if the tedious explanation overwhelmed you, but I just want to clarify the flow of logic behind (as I am studying math and cs bsc). Also I believe it will be helpful for your understanding if you could understand all above.</p>
+    <p>My apologies if this lengthy explanation overwhelmed you, but I wanted to clarify the flow of logic behind the concepts (as I am studying mathematics and computer science). I also believe it will be helpful for your understanding if you can follow everything above.</p>
   </div>
 </div>
 
