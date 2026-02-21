@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charging a Capacitor — A Rigorous Explanation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --text: #1c1917;
+    --accent: #292524;
+    --muted: #78716c;
+    --border: #e7e5e4;
+    --highlight: #fef3c7;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding: 2rem 1rem;
+  }
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+  }
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+  }
+  p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+  }
+  .key-idea {
+    background: var(--highlight);
+    border-left: 3px solid #f59e0b;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .key-idea p { margin-bottom: 0.5rem; }
+  .key-idea p:last-child { margin-bottom: 0; }
+  .step-list {
+    margin: 1.2rem 0;
+    padding-left: 1.5rem;
+  }
+  .step-list li {
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+  }
+  .analogy-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .analogy-box .label {
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .math-block {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 1.15rem;
+  }
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  .footer p { font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Charging a Capacitor</h1>
+  <p class="subtitle">A rigorous explanation using potentials, not electric fields</p>
+
+  <h2>The Setup</h2>
+  <p>
+    Consider connecting two uncharged conducting plates (a parallel plate capacitor) to a battery of voltage \(V\). Let's fix the ground at the midpoint of the battery, so the positive terminal is at \(+V/2\) and the negative terminal is at \(-V/2\).
+  </p>
+
+  <h2>The Key Observations</h2>
+
+  <div class="key-idea">
+    <p><strong>Observation 1:</strong> A battery is <em>not</em> a conductor. Its terminal voltages are fixed by its internal electrochemical properties. The battery is the boss — it dictates the potentials at its terminals.</p>
+  </div>
+
+  <div class="key-idea">
+    <p><strong>Observation 2:</strong> The wire connecting a terminal to a plate, together with the plate itself, forms a single conductor. From electrostatics (end of Chapter 2), we know that a conductor maintains electrostatic equilibrium: \(\vec{E} = 0\) inside, and the potential is constant throughout.</p>
+  </div>
+
+  <p>
+    This gives us two sets of conductors. The left set (positive terminal + wire + left plate) is at \(+V/2\), and the right set (negative terminal + wire + right plate) is at \(-V/2\).
+  </p>
+
+  <h2>Finding the Charge</h2>
+  <p>
+    Now that we know the potential on each plate, we ask: how much charge is needed to make this configuration self-consistent?
+  </p>
+  <p>
+    Between the plates, we still have a parallel plate capacitor. The electric field in the gap is related to the surface charge density by Gauss's law, and related to the potential difference by \(V = Ed\). Combining these:
+  </p>
+
+  <div class="math-block">
+    $$Q = A\,\varepsilon_0\,E = A\,\varepsilon_0\,\frac{V}{d}$$
+  </div>
+
+  <p>
+    The coefficient of \(V\) here, namely \(\dfrac{A\,\varepsilon_0}{d}\), is what we call the <strong>capacitance</strong> \(C\) of the capacitor — a concept you will see formally in the next chapter. So we arrive at:
+  </p>
+
+  <div class="math-block">
+    $$Q = CV$$
+  </div>
+
+  <h2>Why Does Current Stop?</h2>
+  <p>
+    Eventually, when the voltages are balanced — each plate matching the potential of its connected terminal — the charges have no potential difference driving them, so they have nowhere to move. Current stops, and the system is in equilibrium.
+  </p>
+
+  <h2>The Bigger Lesson: Forget \(\vec{E}\), Think \(V\)</h2>
+  <p>
+    In circuits, the shape of wires can be arbitrary and irregular. We have never seen how to quantify the electric field inside an irregular conductor — that would require multivariable calculus and is extremely difficult in general. What we <em>can</em> work with is <strong>potential</strong>.
+  </p>
+  <p>
+    We proved, using electric fields, that conductors maintain electrostatic equilibrium (constant potential throughout). Having established this fact, we can now set the electric field reasoning aside and work entirely with potentials. This is the right way to think about circuits.
+  </p>
+
+  <div class="analogy-box">
+    <div class="label">Analogy</div>
+    <p>
+      This is similar to the Fundamental Theorem of Calculus. We use Part 1 to <em>prove</em> Part 2, but then we never use Part 1 again to compute definite integrals — Part 2 is the operational tool. Similarly, the electric field derivation of electrostatic equilibrium is the foundational justification, but potential is the tool you actually compute with in circuits.
+    </p>
+  </div>
+
+  <p>
+    You will see this idea of working with potential (rather than electric fields) come to full fruition when you reach the chapter on <strong>Kirchhoff's Rules</strong>.
+  </p>
+
+  <div class="footer">
+    <p>My apologies if the tedious explanation overwhelmed you, but I just want to clarify the flow of logic behind (as I am studying math and cs bsc). Also I believe it will be helpful for your understanding if you could understand all above.</p>
+  </div>
+</div>
+
+<script>
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ]
+  });
+</script>
+</body>
+</html>
