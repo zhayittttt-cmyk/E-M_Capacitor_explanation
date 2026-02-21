@@ -90,9 +90,71 @@
     font-style: italic;
   }
   .footer p { font-size: 0.9rem; }
+  .gate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    gap: 1rem;
+  }
+  .gate p {
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+  .gate input {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    text-align: center;
+  }
+  .gate input:focus {
+    border-color: #f59e0b;
+  }
+  .gate button {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .gate .error {
+    color: #dc2626;
+    font-size: 0.9rem;
+    display: none;
+  }
+  .content { display: none; }
 </style>
 </head>
 <body>
+
+<div class="gate" id="gate">
+  <p>Enter the lowercase first name of the author of this page to continue:</p>
+  <input type="password" id="pw" placeholder="Password" autofocus>
+  <button onclick="checkPw()">Enter</button>
+  <p class="error" id="error">Incorrect password. Try again.</p>
+</div>
+<script>
+  function checkPw() {
+    if (document.getElementById('pw').value === 'yitian') {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+    } else {
+      document.getElementById('error').style.display = 'block';
+    }
+  }
+  document.getElementById('pw').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPw();
+  });
+</script>
+
+<div class="content" id="main">
 <div class="container">
   <h1>Charging a Capacitor</h1>
   <p class="subtitle">A rigorous explanation using potentials, not electric fields</p>
@@ -164,6 +226,7 @@
   <div class="footer">
     <p>My apologies if this lengthy explanation overwhelmed you, but I wanted to clarify the flow of logic behind the concepts (as I am studying mathematics and computer science). I also believe it will be helpful for your understanding if you can follow everything above.</p>
   </div>
+</div>
 </div>
 
 <script>
